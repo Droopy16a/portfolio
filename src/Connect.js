@@ -6,7 +6,7 @@ const DiscordLogin = () => {
 
   const CLIENT_ID = "1333073404781133877"; // Replace with your Discord app client ID
   const CLIENT_SECRET = "kSBemv87eJcICFk75rp_h-vFFUYTkB7L";
-  const REDIRECT_URI = "https://discord.com/oauth2/authorize?client_id=1333073404781133877&response_type=code&redirect_uri=https%3A%2F%2Fdroopy16a.github.io%2Fportfolio%2F&scope=identify"; // This should be the URI you set up in the Discord Developer Portal
+  const REDIRECT_URI = "https://droopy16a.github.io/portfolio/"; // This should be the URI you set up in the Discord Developer Portal
   const RESPONSE_TYPE = "code"; // OAuth2 response type
   const SCOPE = "identify"; // Scope for the permissions you need, "identify" gives access to basic info like username
 
