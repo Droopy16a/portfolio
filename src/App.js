@@ -2,6 +2,7 @@ import './style/App.css';
 import Card from './Card.js';
 import Section from './Section.js'
 import Competences from './Competences.js';
+import DiscordLogin from './Connect.js';
 
 function App() {
   const cards = [<Card key={0} index={0} data={"python"}/>, <Card key={1} index={1} data={"JS"}/>, <Card key={2} index={2} data={"JS"}/>];
@@ -19,6 +20,7 @@ function App() {
   return (
     <div className="App">
       <h1 className='Titre'>Droopy's Portfolio</h1>
+      <DiscordLogin/>
       {/* <div className="compe">
       <Competences
         pr = {90}

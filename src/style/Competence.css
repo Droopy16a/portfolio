@@ -25,6 +25,12 @@
     background-color: rgba(255, 255, 255, 0.1);
 }
 
+@media screen and (max-width: 728px) {
+    .progress-bar {
+        width: 70vw;
+    }
+}
+
 .progress {
     height: 100%;
     background: var(--bleu);
