@@ -18,7 +18,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Droopy's Portfolio</h1>
+      <h1 className='Titre'>Droopy's Portfolio</h1>
       {/* <div className="compe">
       <Competences
         pr = {90}

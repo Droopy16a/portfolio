@@ -4,11 +4,8 @@ import { useEffect, useState } from 'react';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ReactDOMServer from 'react-dom/server';
-import {isMobile} from 'react-device-detect';
 
 let H = 0
-
-let tel = isMobile ? 100 : 50 
 
 
 const turn = (e, cards) => {
@@ -25,7 +22,7 @@ const turn = (e, cards) => {
   const card = document.getElementsByClassName(className)[0];
   let vw = window.innerWidth / 100;
   let rect = card.getBoundingClientRect();
-  let L = (rect.width * cards.length) + ((cards.length - 1) * 10) + (((50 * vw) * 10/100) * 2) + ((5 * vw) * 2)
+  let L = (rect.width * cards.length) + ((cards.length - 1) * 10) + ((5 * vw) * 2)
   // let L = (rect.width * cards.length) + (((50 * vw) * 10/100) * 2) + ((5 * vw) * 2)
   let nb = 0
   while (L > window.innerWidth) {
