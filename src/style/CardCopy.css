@@ -1,0 +1,53 @@
+.card {
+    perspective: 1000px;
+    width: calc(0.4 * 822px);
+    height: calc(0.4 * 1122px);
+    transition : transform 0.3s ease-in-out;
+    border-radius: 40px;
+    position: relative;
+  }
+
+.card:hover {
+  transform: scale(1.1) rotateZ(3deg);
+}
+
+.card .inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    border-radius: 40px;
+  }
+
+.card .front,
+.card .back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hides the back when rotated */
+  transition: transform 0.5s ease-in-out;
+  border-radius: 20px;
+  box-shadow:
+  /* inset 0 0 50px #fff, 
+  inset 20px 0 80px #ffd142, 
+  inset -20px 0 80px #3774a8, 
+  inset 20px 0 300px #ffd040, 
+  inset -20px 0 300px #3670a1, */
+  0 0 20px #fff, 
+  0px 0 50px #0000006b
+}   
+
+.card .front {
+  z-index: 2;
+  background: url("../asset/img/pythonCard.png");
+  background-size: cover;
+}
+
+.card .back {
+  z-index: 1;
+  background: url("../asset/img/backCardB.png");
+  background-size: cover;
+  transform: rotate3d(0,1,0, -180deg);
+}

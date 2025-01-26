@@ -1,0 +1,37 @@
+.containerTitre {
+    font-family: petitText;
+    color: var(--blanc);
+    transition: 0.3s;
+    width: fit-content;
+    /* text-transform: uppercase; */
+}
+
+.projet {
+    border: rgb(119 119 119) 1px solid;
+    border-radius: 10px;
+    width: max-content;
+    padding: 10%;
+    display: grid;
+    grid-template-columns: auto;
+    /* gap: 50px; */
+    overflow: hidden;
+    transition: 0.5s;
+    row-gap: 50px;
+}
+
+.fleche {
+    color: white;
+    font-size: 110%;
+    z-index: 99;
+    transition: 0.5s;
+    transform: rotateZ(-90deg);
+}
+
+/* .App h2:hover .fleche {
+    font-size: 120%;
+} */
+
+.containerTitre:hover {
+    color: var(--bleu);
+    cursor: pointer;
+}
