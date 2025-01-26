@@ -26,6 +26,12 @@
     width: min-content;
 }
 
+@media screen and (max-width: 728px) {
+    .App h1 {
+        font-size: 13vw;
+    }
+}
+
 .review {
     border: 1px solid rgb(119 119 119);
     height: 500px;
