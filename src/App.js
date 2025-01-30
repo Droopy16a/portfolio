@@ -1,10 +1,10 @@
 import './style/App.css';
 import Card from './Card.js';
-import Section from './Section.js'
 import Competences from './Competences.js';
 import Moi from './Moi.js';
 // import DiscordLogin from './Connect.js';
 import Color from './Color.js';
+import Section from './section.js';
 
 function App() {
   const cards2 = [<Moi
