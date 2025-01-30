@@ -87,7 +87,8 @@ function Color () {
   const [discordUser, setDiscordUser] = useState(null);
 
   const CLIENT_ID = "1333073404781133877"; // Replace with your Discord app client ID
-  const CLIENT_SECRET = "Y4a7Gm2jYlYkOABFogH2yFIwkHGLdSjQ";
+  const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
+
   const REDIRECT_URI = "https://droopy16a.github.io/portfolio/"; // Replace with your redirect URI
   const SCOPE = "identify";
 
