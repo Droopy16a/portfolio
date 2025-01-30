@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.8d1fec5a.css",
-    "main.js": "/portfolio/static/js/main.3b19e5d6.js",
+    "main.js": "/portfolio/static/js/main.e13a2623.js",
     "static/media/pythonCardV2.png": "/portfolio/static/media/pythonCardV2.d8fa827be47328482faa.png",
     "static/media/backCardB.png": "/portfolio/static/media/backCardB.75d6d16ffa93f363a341.png",
     "static/media/petit.otf": "/portfolio/static/media/petit.020275c8d7a693e9895a.otf",
@@ -10,10 +10,10 @@
     "static/media/JSCard.png": "/portfolio/static/media/JSCard.0339a8141533a1f902dd.png",
     "index.html": "/portfolio/index.html",
     "main.8d1fec5a.css.map": "/portfolio/static/css/main.8d1fec5a.css.map",
-    "main.3b19e5d6.js.map": "/portfolio/static/js/main.3b19e5d6.js.map"
+    "main.e13a2623.js.map": "/portfolio/static/js/main.e13a2623.js.map"
   },
   "entrypoints": [
     "static/css/main.8d1fec5a.css",
-    "static/js/main.3b19e5d6.js"
+    "static/js/main.e13a2623.js"
   ]
 }
