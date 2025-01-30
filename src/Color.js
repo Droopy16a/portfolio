@@ -142,11 +142,18 @@ function Color () {
   
 
     useEffect(() => {
+      try {
         const rgbList = window.getComputedStyle(document.body).getPropertyValue("--bleu").split("(")[1].split(')')[0].split(",").map((val) => parseInt(val.replace(" ", "")));
-        // console.log(rgbList);
-        // console.log(rgbToHex(rgbList[0], rgbList[1], rgbList[2]));
         document.getElementsByClassName("inputColor")[0].value = rgbToHex(rgbList[0], rgbList[1], rgbList[2]);
         setTheme(lightOrDark(rgbToHex(rgbList[0], rgbList[1], rgbList[2])));
+      } catch {
+        const rgbList = window.getComputedStyle(document.body).getPropertyValue("--bleu");
+        document.getElementsByClassName("inputColor")[0].value = rgbList;
+        setTheme(lightOrDark(rgbList));
+      }
+        
+        // console.log(rgbList);
+        // console.log(rgbToHex(rgbList[0], rgbList[1], rgbList[2]));
         
         // if (!discordUser) return;
         handleRedirect();
