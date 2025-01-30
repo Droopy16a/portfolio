@@ -34,7 +34,7 @@
 .progress {
     height: 100%;
     background: var(--bleu);
-    background: radial-gradient(circle, rgba(146, 205, 255, 1) 0%, rgba(95, 182, 255, 1) 100%);
+    background: var(--grad);
     width: 0;
     transition: 0.5s;
 }

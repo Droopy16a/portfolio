@@ -1,0 +1,19 @@
+.pres {
+    width: 60vw;
+    color: white;
+    font-family: petitText;
+    height: min-content;
+    font-size: large;
+}
+
+.pres li::marker {
+    color: var(--bleu);
+}
+
+.pres p span {
+    background: var(--bleu);
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}

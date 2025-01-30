@@ -20,7 +20,7 @@
     font-family: grosText;
     text-transform: uppercase;
     background: var(--bleu);
-    background: radial-gradient(circle, rgba(146, 205, 255, 1) 0%, rgba(95, 182, 255, 1) 100%);
+    background: var(--grad);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     width: min-content;
