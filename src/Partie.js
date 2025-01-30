@@ -68,7 +68,7 @@ const turn = (e, cards) => {
   }
 };
 
-function Section({cards, titre, id}) {
+function Partie({cards, titre, id}) {
     const [gridTemplateColumns, setGridTemplateColumns] = useState('auto '.repeat(2));
     useEffect(() => {
       
@@ -132,4 +132,4 @@ function Section({cards, titre, id}) {
     );
 };
 
-export default Section;
+export default Partie;

@@ -4,7 +4,7 @@ import Competences from './Competences.js';
 import Moi from './Moi.js';
 // import DiscordLogin from './Connect.js';
 import Color from './Color.js';
-import Section from './section.js';
+import Partie from './Partie.js';
 
 function App() {
   const cards2 = [<Moi
@@ -34,7 +34,7 @@ function App() {
         pr = {90}
       /> 
       </div> */}
-      <Section 
+      <Partie 
         cards={[
           <Moi
             texte={`Avec plus de <span>5 ans</span> d'expérience en développement, je suis un expert en Python, JavaScript, CSS et React. Mon objectif ? Transformer vos idées en projets concrets, performants et sur-mesure. 
@@ -49,12 +49,12 @@ function App() {
         titre="// A propos de Moi"
         id = {0}
       />
-      <Section 
+      <Partie 
         cards={cards}
         titre="// Mes Compétences"
         id = {1}
       />
-      <Section 
+      <Partie 
         cards={cards2}
         titre="// Mes Projets"
         id = {2}
