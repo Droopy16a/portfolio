@@ -72,13 +72,23 @@ function componentToHex(c) {
     return [ r, g, b ];
   }
 
+  async function getTextWidth(text, fontSize) {
+    await document.fonts.ready; // Wait for all fonts to load
+  
+    const canvas = document.createElement("canvas");
+    const context = canvas.getContext("2d");
+    context.font = `${fontSize}px petitTexte`; // Use your custom font
+    return context.measureText(text).width;
+  }
+  
+
 function Color () {
   const [L, setTheme] = useState("light");
   const [discordUser, setDiscordUser] = useState(null);
 
   const CLIENT_ID = "1333073404781133877"; // Replace with your Discord app client ID
   const CLIENT_SECRET = "Y4a7Gm2jYlYkOABFogH2yFIwkHGLdSjQ";
-  const REDIRECT_URI = "https://droopy16a.github.io/portfolio/"; // Replace with your redirect URI
+  const REDIRECT_URI = "http://localhost:3000/callback"; // Replace with your redirect URI
   const SCOPE = "identify";
 
   const oauthUrl = `https://discord.com/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=code&scope=${SCOPE}`;
@@ -115,20 +125,26 @@ function Color () {
         .then(userResponse => {
           setDiscordUser(userResponse.data); // Set user data in state
           console.log(userResponse.data);
+          if (userResponse.data["banner_color"]){
           const El = userResponse.data["banner_color"];
           var r = document.body;
           var rgbL = hex2rgb(El);
           rgbL = lightenColor(rgbL[0], rgbL[1], rgbL[2])
           r.style.setProperty('--bleu', El);
           r.style.setProperty('--lightB', rgbL);
-          document.getElementsByClassName("inputColor")[0].value = El;
+          document.getElementsByClassName("inputColor")[0].value = El;}
 
           const user = document.getElementsByClassName("divInputColor")[0].querySelector("h3");
           console.log(user.getBoundingClientRect().width);
-          const C = document.getElementsByClassName("inputColor")[0];
-          let taille = (100 * (user.getBoundingClientRect().width + 50 + 2 * (C.getBoundingClientRect().width))) / 90;
-          console.log(taille);
-          r.style.setProperty('--colorTaille', taille + "px");
+          getTextWidth(userResponse.data.username, 20).then((W) => {
+            console.log("Text width:", W);
+            const C = document.getElementsByClassName("inputColor")[0];
+            let taille = (100 * (W + 100 + 25 + 2 * (C.getBoundingClientRect().width))) / 90;
+            console.log(taille);
+            var r = document.body;
+            r.style.setProperty('--colorTaille', taille + "px");
+          });
+          
         })
         .catch(error => {
           console.error('Error fetching user data:', error);
