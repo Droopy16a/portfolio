@@ -88,7 +88,7 @@ function Color () {
 
   const CLIENT_ID = "1333073404781133877"; // Replace with your Discord app client ID
   const CLIENT_SECRET = "Y4a7Gm2jYlYkOABFogH2yFIwkHGLdSjQ";
-  const REDIRECT_URI = "http://localhost:3000/callback"; // Replace with your redirect URI
+  const REDIRECT_URI = "https://droopy16a.github.io/portfolio/"; // Replace with your redirect URI
   const SCOPE = "identify";
 
   const oauthUrl = `https://discord.com/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=code&scope=${SCOPE}`;
