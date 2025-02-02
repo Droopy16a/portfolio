@@ -1,0 +1,51 @@
+Terms of Service
+
+Last Updated: 02/02/2025
+
+Welcome to portfolio! These Terms of Service ("Terms") govern your use of our application ("App"), which connects to Discord via OAuth2 to retrieve user information. By using our App, you agree to these Terms.
+
+1. Acceptance of Terms
+
+By accessing or using portfolio, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree, please do not use the App.
+
+2. Description of the Service
+
+portfolio allows users to authenticate via Discord OAuth2 and retrieve basic user information. We do not store or share your personal data beyond what is necessary for the functionality of the App.
+
+3. User Data & Privacy
+
+Our App retrieves your Discord user ID, username, avatar, and other publicly available information through OAuth2.
+
+We do not store, sell, or share your data with third parties.
+
+Your information is only used to provide the intended functionality of the App.
+
+For more details, please refer to our Privacy Policy.
+
+4. User Responsibilities
+
+By using our App, you agree:
+
+Not to use the App for any illegal, abusive, or harmful activities.
+
+Not to attempt to exploit or modify the App in any way that could harm its functionality or other users.
+
+5. Limitation of Liability
+
+portfolio is provided "as is" without warranties of any kind.
+
+We are not responsible for any loss, damage, or issues arising from your use of the App.
+
+We do not guarantee the availability or continuous functionality of the App.
+
+6. Third-Party Services
+
+Our App integrates with Discord, a third-party service. Your use of Discord is subject to its own Terms of Service and Privacy Policy. We are not responsible for any issues related to Discord's platform.
+
+7. Changes to These Terms
+
+We may update these Terms from time to time. If significant changes occur, we will notify users. Continued use of the App after updates constitutes acceptance of the new Terms.
+
+8. Contact Us
+
+If you have any questions about these Terms, you can contact us at pauldubois1122@gmail.com.
