@@ -33,6 +33,7 @@ const turn = (e, cards) => {
       L = L - rect.width
       nb += 1
   }
+  nb = Math.min(nb, cards.length - 1);
   if (cards.length !==1){
     if (Math.round(cards.length / (cards.length - nb)) >= cards.length / (cards.length - nb)){
       H = rect.height * Math.round(cards.length / (cards.length - nb)) + (50 * ((Math.round(cards.length / (cards.length - nb))) - 1))
@@ -42,6 +43,8 @@ const turn = (e, cards) => {
   } else {
     H = rect.height
   }
+
+  console.log({ L, windowWidth: window.innerWidth, nb, H, rectWidth: rect.width });
 
   var projet = document.getElementsByClassName('projet')[index];
   const fleche = document.getElementsByClassName('fleche')[index];
@@ -91,6 +94,7 @@ function Partie({cards, titre, id}) {
                 L = L - rect.width
                 nb += 1
             }
+            nb = Math.min(nb, cards.length - 1);
 
             if (cards.length !==1){
               if (Math.round(cards.length / (cards.length - nb)) >= cards.length / (cards.length - nb)){
