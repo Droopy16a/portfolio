@@ -92,6 +92,7 @@ function Color () {
   // console.log(process.env.REACT_APP_CLIENT_SECRET)
 
   const REDIRECT_URI = "https://droopy16a.github.io/portfolio/"; // Replace with your redirect URI
+  // const REDIRECT_URI = "http://localhost:3000/callback"; // Replace with your redirect URI
   const SCOPE = "identify";
 
   const oauthUrl = `https://discord.com/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=code&scope=${SCOPE}`;
