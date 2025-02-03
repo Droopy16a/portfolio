@@ -12,9 +12,12 @@ const turn = (e, cards) => {
 
   const F = document.getElementsByClassName("containerTitre")
   let index = Array.from(F).indexOf(e.target)
-
-  const Moi = Array.from(document.getElementsByClassName(document.getElementsByClassName('projet')[index].children[0].className)).indexOf(document.getElementsByClassName('projet')[index].children[0])
-
+  var Moi = 0
+  try {
+    Moi = Array.from(document.getElementsByClassName(document.getElementsByClassName('projet')[index].children[0].className)).indexOf(document.getElementsByClassName('projet')[index].children[0])
+  } catch {
+    Moi = 0
+  }
   console.log(Moi)
 
   console.log(index);
@@ -34,15 +37,17 @@ const turn = (e, cards) => {
       nb += 1
   }
   nb = Math.min(nb, cards.length - 1);
-  if (cards.length !==1){
-    if (Math.round(cards.length / (cards.length - nb)) >= cards.length / (cards.length - nb)){
-      H = rect.height * Math.round(cards.length / (cards.length - nb)) + (50 * ((Math.round(cards.length / (cards.length - nb))) - 1))
-    }else{
-      H = rect.height * (Math.round(cards.length / (cards.length - nb)) + 1) + (50 * ((Math.round(cards.length / (cards.length - nb)) + 1) - 1))
-    }
-  } else {
-    H = rect.height
-  }
+  // if (cards.length !==1){
+  //   if (Math.round(cards.length / (cards.length - nb)) >= cards.length / (cards.length - nb)){
+  //     H = rect.height * Math.round(cards.length / (cards.length - nb)) + (50 * ((Math.round(cards.length / (cards.length - nb))) - 1))
+  //   }else{
+  //     H = rect.height * (Math.round(cards.length / (cards.length - nb)) + 1) + (50 * ((Math.round(cards.length / (cards.length - nb)) + 1) - 1))
+  //   }
+  // } else {
+  //   H = rect.height
+  // }
+
+  H = "calc-size(fit-content, size)"
 
   console.log({ L, windowWidth: window.innerWidth, nb, H, rectWidth: rect.width });
 
@@ -57,13 +62,17 @@ const turn = (e, cards) => {
     fleche.style.transform = "rotateZ(-90deg)";
     projet.style.height = "0";
     projet.style.padding = "0px";
+    if (ismobile) {
+      projet.style.border = "";
+    }
     // projet.style.border = "var(--bleu) 1px solid"
   } else {
     console.log(H)
     fleche.style.transform = "rotateZ(0deg)";            
-    projet.style.height = H + "px";
+    projet.style.height = H;
     if (ismobile) {
       projet.style.padding = "10%";
+      projet.style.border = "unset";
     } else {
       projet.style.padding = "5%";
     }
@@ -96,18 +105,20 @@ function Partie({cards, titre, id}) {
             }
             nb = Math.min(nb, cards.length - 1);
 
-            if (cards.length !==1){
-              if (Math.round(cards.length / (cards.length - nb)) >= cards.length / (cards.length - nb)){
-                H = rect.height * Math.round(cards.length / (cards.length - nb)) + (50 * ((Math.round(cards.length / (cards.length - nb))) -1))
-              }
-              else{
-                H = rect.height * (Math.round(cards.length / (cards.length - nb)) + 1) + (50 * ((Math.round(cards.length / (cards.length - nb)) + 1) -1))
-              }
-            } else {
-              H = rect.height
-            }
+            // if (cards.length !==1){
+            //   if (Math.round(cards.length / (cards.length - nb)) >= cards.length / (cards.length - nb)){
+            //     H = rect.height * Math.round(cards.length / (cards.length - nb)) + (50 * ((Math.round(cards.length / (cards.length - nb))) -1))
+            //   }
+            //   else{
+            //     H = rect.height * (Math.round(cards.length / (cards.length - nb)) + 1) + (50 * ((Math.round(cards.length / (cards.length - nb)) + 1) -1))
+            //   }
+            // } else {
+            //   H = rect.height
+            // }
+
+            H = "calc-size(fit-content, size)"
             if (projetMoi.style.height!=="0px") {
-              projetMoi.style.height = H + "px";
+              projetMoi.style.height = H;
             }
             console.log(cards.length / (cards.length - nb))
             const newTemplate = 'auto '.repeat(cards.length - nb)

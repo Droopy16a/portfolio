@@ -1,0 +1,255 @@
+.commentAvis {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 50px;
+    row-gap: 25px;
+    align-items: center;
+}
+
+.rate-bar {
+    width: 100%;
+    height: min-content;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.rate-bar span{
+    color: var(--blanc);
+    font-family : petitText;
+    margin-right: 10px;
+}
+
+
+.rate-name{
+    width: 100%;
+}
+
+.rate-name span{
+    color: var(--blanc);
+    font-family : petitText;
+}
+
+.rate-percentage {
+    display: block;
+    width: 100%;
+    position: relative;
+    text-align: right;
+}
+
+.Rprogress-bar {
+    width: 60vw;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+@media screen and (max-width: 728px) {
+    .Rprogress-bar {
+        width: 80vw;
+    }
+}
+
+.Rprogress {
+    height: 100%;
+    background: var(--bleu);
+    background: var(--grad);
+    width: 0;
+    transition: 0.5s;
+}
+
+.Avis {
+    width: max-content;
+    display: grid;
+    grid-template-columns: auto;
+    gap: 50px;
+    transition: 0.5s;
+    row-gap: 50px;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.Comment {
+    /* width: max-content; */
+    display: grid;
+}
+
+.inp {
+    position: relative;
+    margin: auto;
+    width: 100%;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .inp .label {
+    position: absolute;
+    top: 20px;
+    left: 12px;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+    transform-origin: 0 0;
+    transform: translate3d(0, 0, 0);
+    transition: all 0.2s ease;
+    pointer-events: none;
+  }
+  .inp .focus-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.05);
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  .inp input[type="text"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+         appearance: none;
+    width: 100%;
+    border: 0;
+    padding: 16px 12px 0 12px;
+    height: 56px;
+    font-size: 16px;
+    font-weight: 400;
+    background: rgba(255, 255, 255, 0.02);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    transition: all 0.15s ease;
+    font-family: petitText;
+  }
+  .inp input[type="text"]:hover {
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+  }
+  .inp input[type="text"]:not(:-moz-placeholder-shown) + .label {
+    color: rgba(255, 255, 255, 0.5);
+    transform: translate3d(0, -12px, 0) scale(0.75);
+  }
+  .inp input[type="text"]:not(:-ms-input[type="text"]-placeholder) + .label {
+    color: rgba(255, 255, 255, 0.5);
+    transform: translate3d(0, -12px, 0) scale(0.75);
+  }
+  .inp input[type="text"]:not(:placeholder-shown) + .label {
+    color: rgba(255, 255, 255, 0.5);
+    transform: translate3d(0, -12px, 0) scale(0.75);
+  }
+  .inp input[type="text"]:focus {
+    background: rgba(0, 0, 0, 0.05);
+    outline: none;
+    box-shadow: inset 0 -2px 0 var(--bleu);
+  }
+  .inp input[type="text"]:focus + .label {
+    color: var(--bleu);
+    transform: translate3d(0, -12px, 0) scale(0.75);
+  }
+  .inp input[type="text"]:focus + .label + .focus-bg {
+    transform: scaleX(1);
+    transition: all 0.1s ease;
+  }
+
+  .rating {
+    /* margin-top: 40px; */
+    border: none;
+    width: fit-content;
+    float: left;
+    overflow: hidden;
+    height: 0;
+    transition: 0.2s;
+  }
+  
+  .rating > label {
+    color: #90A0A3;
+    float: right;
+  }
+  
+  .rating > label:before {
+    margin: 5px;
+    font-size: 2em;
+    content: "";
+    display: inline-block;
+  }
+  
+  .rating > input {
+    display: none;
+  }
+  
+  .rating > input:checked ~ label,
+  .rating:not(:checked) > label:hover,
+  .rating:not(:checked) > label:hover ~ label {
+    color: #F79426;
+  }
+  
+  .rating > input:checked + label:hover,
+  .rating > input:checked ~ label:hover,
+  .rating > label:hover ~ input:checked ~ label,
+  .rating > input:checked ~ label:hover ~ label {
+    color: #FECE31;
+  }
+
+.send {
+    background-color: var(--blanc);
+    border: none;
+    height: 25px;
+    transition: 0.2s ease;
+    width: 100%;
+}
+
+.send:hover {
+    background-color: var(--bleu);
+    color: white;
+}
+
+.send:active {    
+    background-color: rgb(150, 150, 150);
+}
+
+.commentBox {
+  color: white;
+  font-family: petitText;
+  font-size: large;
+  width: min-content;
+  min-width: 230px;
+  box-shadow: 0px 0px 20px 0px #00000063;
+  padding: 25px;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+.commentBox:hover {
+  box-shadow: 0px 0px 20px 0px #000000b0;
+  transform: scale(1.01);
+}
+
+
+.commentBox img {
+  width: 50px;
+  height: 50px;
+  transition: 0.5s;
+  border-radius: 50px;
+  box-shadow: 2px 0px 18px 0px #000000b3;
+  background-color: var(--bleu);
+  transition: 0s;
+  margin-right: 1em;
+}
+
+.commentBox .header {
+  display: flex;
+  align-items: center;
+}
+
+.comment-wrapper {
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.fade-out {
+  opacity: 0;
+  transform: translateX(10px);
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translateX(0);
+}

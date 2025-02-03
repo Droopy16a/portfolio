@@ -1,8 +1,18 @@
 import './style/Color.css'
 import React, { useState, useEffect } from "react";
+import supabase from "./supabaseClient";
 import axios from "axios";
 import logoW from"./asset/img/logoDiscordW.png"
 import logoN from"./asset/img/logoDiscordN.png"
+
+async function addUser(name, email, color) {
+  const { data, error } = await supabase
+    .from("users")
+    .insert([{ name, color }]);
+
+  if (error) console.error(error);
+  else console.log("User added:", data);
+}
 
 function lightOrDark(color) {
 
@@ -84,7 +94,7 @@ function componentToHex(c) {
 
 function Color () {
   const [L, setTheme] = useState("light");
-  const [discordUser, setDiscordUser] = useState(null);
+  const [discordUser, setDiscordUser] = useState(JSON.parse(localStorage.getItem("user")) || {});
 
   const CLIENT_ID = "1333073404781133877"; // Replace with your Discord app client ID
   const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
@@ -101,6 +111,7 @@ function Color () {
   // Handle redirect after OAuth2 login
   const handleRedirect = () => {
     const queryParams = new URLSearchParams(window.location.search);
+    console.log(queryParams)
     const code = queryParams.get('code'); // The code is returned by Discord after login
     console.log(code);
 
@@ -128,15 +139,18 @@ function Color () {
         })
         .then(userResponse => {
           setDiscordUser(userResponse.data); // Set user data in state
+          localStorage.setItem("user", JSON.stringify(userResponse.data));
           console.log(userResponse.data);
+          // addUser(userResponse.data.username, userResponse.data["banner_color"]);
           if (userResponse.data["banner_color"]){
-          const El = userResponse.data["banner_color"];
-          var r = document.body;
-          var rgbL = hex2rgb(El);
-          rgbL = lightenColor(rgbL[0], rgbL[1], rgbL[2])
-          r.style.setProperty('--bleu', El);
-          r.style.setProperty('--lightB', rgbL);
-          document.getElementsByClassName("inputColor")[0].value = El;}
+            const El = userResponse.data["banner_color"];
+            var r = document.body;
+            var rgbL = hex2rgb(El);
+            rgbL = lightenColor(rgbL[0], rgbL[1], rgbL[2])
+            r.style.setProperty('--bleu', El);
+            r.style.setProperty('--lightB', rgbL);
+            document.getElementsByClassName("inputColor")[0].value = El;
+          }
 
           const user = document.getElementsByClassName("divInputColor")[0].querySelector("h3");
           console.log(user.getBoundingClientRect().width);
@@ -162,6 +176,18 @@ function Color () {
   
 
     useEffect(() => {
+      
+  
+    if (discordUser && discordUser["banner_color"]){
+      const El = discordUser["banner_color"];
+      var r = document.body;
+      var rgbL = hex2rgb(El);
+      rgbL = lightenColor(rgbL[0], rgbL[1], rgbL[2])
+      r.style.setProperty('--bleu', El);
+      r.style.setProperty('--lightB', rgbL);
+      document.getElementsByClassName("inputColor")[0].value = El;
+    }
+
       try {
         const rgbList = window.getComputedStyle(document.body).getPropertyValue("--bleu").split("(")[1].split(')')[0].split(",").map((val) => parseInt(val.replace(" ", "")));
         document.getElementsByClassName("inputColor")[0].value = rgbToHex(rgbList[0], rgbList[1], rgbList[2]);

@@ -1,6 +1,7 @@
 import './style/App.css';
 import Card from './Card.js';
 import Competences from './Competences.js';
+import Avis from './Avis.js';
 import Moi from './Moi.js';
 // import DiscordLogin from './Connect.js';
 import Color from './Color.js';
@@ -58,6 +59,16 @@ function App() {
         cards={cards2}
         titre="// Mes Projets"
         id = {2}
+      />
+      <Partie 
+        cards={
+          [<Avis
+            rate={[0, 0, 0, 0, 0]}
+          />
+        ]
+        }
+        titre="// Avis"
+        id = {3}
       />
 
       {/* <div className='review'>
