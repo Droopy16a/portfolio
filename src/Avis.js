@@ -7,6 +7,7 @@ import supabase from "./supabaseClient";
 import Comment from './Comment';
 
 let ismobile = window.innerWidth <= 728
+let once = 0
 
 function Avis({ rate }) {
     const comments = [
@@ -53,7 +54,11 @@ function Avis({ rate }) {
         };
 
         handleResize();
-        fetchData();
+
+        if (once < 1){
+            once += 1;
+            fetchData();
+        }
 
         window.addEventListener('resize', handleResize);
 
@@ -148,7 +153,7 @@ function Avis({ rate }) {
             </div>
             <div className="comment-slider">
                 {data.length > 0 && (
-                    <div className={`comment-wrapper ${transition ? "fade-out" : "fade-in"}`} onClick={handleNext}>
+                    <div className={`comment-wrapper ${transition ? "fade-out" : "fade-in"}`} onClick={()=>{handleNext(); fetchData()}}>
                         <Comment
                             username={data[currentIndex]?.username}
                             comment={data[currentIndex]?.comment}
@@ -225,10 +230,15 @@ function Avis({ rate }) {
                         onFocus={() => document.getElementsByClassName("rating")[0].style.height = "calc-size(fit-content, size)"}
                         onKeyDown={(e)=>{if (e.key === "Enter"){
                             const commentText = document.getElementById('inp').value;
+                            const paper = document.getElementById('paper');
+                            paper.classList.add('sended');
                             addComment(commentText, selectedRating);
                             document.getElementById('inp').value = "";
                             setSelectedRating(1)
                             fetchData();
+                            setTimeout(() => {
+                                paper.classList.remove('sended');
+                            }, 1000);
                         }}}
                     />
                     <span className="label">Votre Avis...</span>
