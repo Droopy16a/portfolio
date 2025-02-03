@@ -34,7 +34,8 @@ function Avis({ rate }) {
             let vw = window.innerWidth / 100;
             const r = document.getElementsByClassName("Rprogress-bar");
             const spanRate = document.getElementsByClassName("spanRate")[0].getBoundingClientRect().width;
-            const comment = document.getElementsByClassName("Comment")[0].getBoundingClientRect().width;
+            const commentEl = document.getElementsByClassName("Comment")[0];
+            const comment = commentEl ? commentEl.getBoundingClientRect().width : 0;
             const commentBox = document.getElementsByClassName("commentBox")[0].getBoundingClientRect().width;
             const C = document.getElementsByClassName("commentAvis")[0];
             console.log(Math.max(comment, commentBox));
