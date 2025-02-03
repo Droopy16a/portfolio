@@ -53,9 +53,9 @@ function Avis({ rate }) {
         };
 
         handleResize();
+        fetchData();
 
         window.addEventListener('resize', handleResize);
-        window.addEventListener('load', fetchData);
 
         const P = document.getElementsByClassName("Rprogress");
         Array.from(P).map((p,i)=>{
@@ -125,7 +125,6 @@ function Avis({ rate }) {
             updatedAvg[nb] = Math.round((updatedAvg[nb] / tot) * 100)
           });
 
-          console.log(updatedAvg)
           setAvg(updatedAvg);
         }
       };
@@ -149,7 +148,7 @@ function Avis({ rate }) {
             </div>
             <div className="comment-slider">
                 {data.length > 0 && (
-                    <div className={`comment-wrapper ${transition ? "fade-out" : "fade-in"}`}>
+                    <div className={`comment-wrapper ${transition ? "fade-out" : "fade-in"}`} onClick={handleNext}>
                         <Comment
                             username={data[currentIndex]?.username}
                             comment={data[currentIndex]?.comment}
@@ -238,13 +237,18 @@ function Avis({ rate }) {
                         className='send'
                         onClick={() => {
                             const commentText = document.getElementById('inp').value;
+                            const paper = document.getElementById('paper');
+                            paper.classList.add('sended');
                             addComment(commentText, selectedRating);
                             document.getElementById('inp').value = "";
                             setSelectedRating(1)
                             fetchData();
+                            setTimeout(() => {
+                                paper.classList.remove('sended');
+                            }, 1000);
                         }}
                     >
-                        <FontAwesomeIcon className='star' icon={faPaperPlane} />
+                        <FontAwesomeIcon id='paper' icon={faPaperPlane} />
                     </button>
                 </label>
             </div>

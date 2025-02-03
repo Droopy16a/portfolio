@@ -206,6 +206,26 @@
     background-color: rgb(150, 150, 150);
 }
 
+.sended {
+  animation: vol 1s;
+}
+
+@keyframes vol {
+  0%{
+    transform: translate(0);
+  }
+  25%{
+    color: transparent;
+    transform: translate(25vw);
+  }
+  50%{
+    transform: translate(-25vw);
+  }
+  100%{
+    transform: translate(0);
+  }
+}
+
 .commentBox {
   color: white;
   font-family: petitText;

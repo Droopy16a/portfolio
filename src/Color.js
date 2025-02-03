@@ -101,8 +101,8 @@ function Color () {
 
   // console.log(process.env.REACT_APP_CLIENT_SECRET)
 
-  const REDIRECT_URI = "https://droopy16a.github.io/portfolio/"; // Replace with your redirect URI
-  // const REDIRECT_URI = "http://localhost:3000/callback"; // Replace with your redirect URI
+  // const REDIRECT_URI = "https://droopy16a.github.io/portfolio/"; // Replace with your redirect URI
+  const REDIRECT_URI = "http://localhost:3000/callback"; // Replace with your redirect URI
   const SCOPE = "identify";
 
   const oauthUrl = `https://discord.com/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=code&scope=${SCOPE}`;
@@ -187,6 +187,18 @@ function Color () {
       r.style.setProperty('--lightB', rgbL);
       document.getElementsByClassName("inputColor")[0].value = El;
     }
+
+    
+    const user = document.getElementsByClassName("divInputColor")[0].querySelector("h3");
+    console.log(user.getBoundingClientRect().width);
+    getTextWidth(discordUser.username, 20).then((W) => {
+      console.log("Text width:", W);
+      const C = document.getElementsByClassName("inputColor")[0];
+      let taille = (100 * (W + 100 + 25 + 2 * (C.getBoundingClientRect().width))) / 90;
+      console.log(taille);
+      var r = document.body;
+      r.style.setProperty('--colorTaille', taille + "px");
+    });
 
       try {
         const rgbList = window.getComputedStyle(document.body).getPropertyValue("--bleu").split("(")[1].split(')')[0].split(",").map((val) => parseInt(val.replace(" ", "")));
