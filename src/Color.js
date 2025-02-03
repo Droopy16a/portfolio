@@ -94,7 +94,7 @@ function componentToHex(c) {
 
 function Color () {
   const [L, setTheme] = useState("light");
-  const [discordUser, setDiscordUser] = useState(JSON.parse(localStorage.getItem("user")) || {});
+  const [discordUser, setDiscordUser] = useState(JSON.parse(localStorage.getItem("user")) || null);
 
   const CLIENT_ID = "1333073404781133877"; // Replace with your Discord app client ID
   const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
