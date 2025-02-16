@@ -191,6 +191,8 @@ function Color () {
     
     const user = document.getElementsByClassName("divInputColor")[0].querySelector("h3");
     console.log(user.getBoundingClientRect().width);
+    
+    if (discordUser){
     getTextWidth(discordUser.username, 20).then((W) => {
       console.log("Text width:", W);
       const C = document.getElementsByClassName("inputColor")[0];
@@ -199,6 +201,7 @@ function Color () {
       var r = document.body;
       r.style.setProperty('--colorTaille', taille + "px");
     });
+    };
 
       try {
         const rgbList = window.getComputedStyle(document.body).getPropertyValue("--bleu").split("(")[1].split(')')[0].split(",").map((val) => parseInt(val.replace(" ", "")));
